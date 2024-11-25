@@ -1,0 +1,43 @@
+<body>
+    <h1>Voting Program</h1>
+    <div id="output"></div>
+
+    <script>
+    function runVoting() {
+        const output = document.getElementById('output');
+        const candidates = [];
+        
+        const candidateCount = parseInt(prompt('How many candidates?'));
+        
+        for (let i = 0; i < candidateCount; i++) {
+            const name = prompt(`Name for candidate ${i + 1}`).toLowerCase();
+            candidates.push({ name: name, votes: 0 });
+        }
+        
+        const voterCount = parseInt(prompt('How many voters?'));
+        
+        for (let i = 0; i < voterCount; i++) {
+            const vote = prompt(`Voter ${i + 1}'s vote`).toLowerCase();
+            
+            if (vote) {
+                const candidate = candidates.find(c => c.name === vote);
+                if (candidate) candidate.votes++;
+            }
+        }
+        
+        candidates.sort((a, b) => b.votes - a.votes);
+        
+        let result = `The winner is ${candidates[0].name} with ${candidates[0].votes} votes.\n\nResults:\n`;
+        // The \n for some shitty reason does not work - Wissam.
+        // A fix would be to use like <nl>some shit</nl> however, I don't think it matters that much.
+        candidates.forEach(candidate => {
+            result += `${candidate.name}: ${candidate.votes} votes\n`;
+        });
+        
+        output.textContent = result;
+    }
+    
+    runVoting();
+    </script>
+</body>
+</html>

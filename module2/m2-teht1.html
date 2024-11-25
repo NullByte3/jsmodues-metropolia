@@ -1,0 +1,27 @@
+<body>
+    <h1>Reverse Numbers Program</h1>
+    <div id="output"></div>
+
+    <script>
+    function reverseNumbers() {
+        const numbers = [];
+        
+        for (let i = 0; i < 5; i++) {
+            const number = parseFloat(prompt(`Enter the number ${i + 1}:`));
+            numbers.push(number); // TIP: This is javascript not Python .append does not work here -Vivsam.
+        }
+        
+        let output = 'Numbers in reverse order:<nl>';
+        // I have zero idea why the <nl> does not work.
+        for (let i = numbers.length - 1; i >= 0; i--) {
+            output += numbers[i] + ' ';
+        }
+        
+        document.getElementById('output').textContent = output;
+        console.log(output);
+    }
+    
+    reverseNumbers();
+    </script>
+</body>
+</html>
