@@ -1,0 +1,11 @@
+<body>
+	<p id="room">
+		yeet
+	</p>
+</body>
+<script>
+	let rooms = ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"]
+	let name = prompt("What's your name my g?")
+	var room = rooms[Math.floor(Math.random()*rooms.length)];
+	document.querySelector("#room").innerHTML = name +', you are ' + room
+</script>
